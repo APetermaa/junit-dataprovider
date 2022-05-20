@@ -29,12 +29,8 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-      with:
-        arguments: build
-  test:
-    name: UnitTest
-    runs-on: ubuntu-latest
-    steps:
-    - run: ./gradlew test
+    - name: UnitTest
+      run: ./gradlew test
+    - name: IntegrationTest
+      run: ./gradlew integTest
+    
